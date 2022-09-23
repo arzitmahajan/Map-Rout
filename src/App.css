@@ -1,18 +1,14 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-body {
+body{
+  overflow-x: hidden;
   background: #F4F8FA;
+
 }
 
 .texto {
-  width: 560px;
+  width: 100%;
   height: 24px;
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -29,6 +25,7 @@ body {
 .input-bg {
   box-sizing: border-box;
   background: #FFFFFF;
+  /* background: red; */
   border: 1px solid #E9EEF2;
   border-radius: 4px;
   width: 272px;
@@ -147,34 +144,47 @@ input:active {
   font-size: 14px;
   width: 47%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 500px) {
+  .input-bg{
+    width: 250px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  input{
+    width: 150px;
   }
-
-  to {
-    transform: rotate(360deg);
+  .current{
+    position: relative;
+    left:135px;
   }
+  .res{
+    margin-left: 15px;
+  }
+  .dist {
+    width: 80px;
+    height: 19px;
+    font-size: 22px;
+  }
+  
+}
+@media screen and (max-width: 340px) {
+  .cal-button,.clr-button{
+    width: 101px;
+    height: 52px;
+  }
+  .input-bg{
+    width: 150px;
+  }
+  input{
+    width: 80px;
+  }
+  .current{
+    position: relative;
+    left:55px;
+  }
+  .result{  
+    display: block;
+  }
+  .head{
+    margin-left: 25%;
+  }
+  
 }

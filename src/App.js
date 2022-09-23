@@ -3,7 +3,7 @@ import Navbar from './Components/Navbar';
 import Map from './Components/Map';
 import logo from './Assets/logo.png';
 import mark from './Assets/placeholder.png';
-import currentIcon from './Assets/location.png';
+import currentIcon from './Assets/recentre.png';
 import React, {useState, useRef, useEffect } from 'react';
 import { useJsApiLoader, Autocomplete} from "@react-google-maps/api";
 
@@ -125,17 +125,16 @@ function App() {
               </Autocomplete>
             </div>
           </div>
-          <div className='res'>
-            <div className="mb-3 d-flex align-items-end flex-column">
+          <div className="mb-3 d-flex align-items-end flex-column">
               <button type="button" className="mt-auto p-2 my-4 clr-button" onClick={clearRoute}>Clear</button>
             </div>
+          <div className='res'>
             <div className='result row rounded'>
               <div className='head col-2  justify-content-center  d-flex align-items-center'><span className='distDeco'>Distance</span></div>
               <div className='head col-2  justify-content-center  d-flex align-items-center'><span className='dist'>{distance}</span></div>
             </div>
-
             <div className='liner my-5'>
-              {originInput && <span className='duration'><p>The dist btw <strong>{originInput}</strong> and <strong>{destinationInput}</strong> is <strong>{distance}</strong>and estimated time is <strong>{duration}</strong></p></span>}
+              {originInput && <span className='duration'><p>The distance between <strong>{originInput}</strong> and <strong>{destinationInput}</strong> is <strong>{distance}</strong>and estimated time is <strong>{duration}</strong></p></span>}
             </div>
           </div>
         </div>

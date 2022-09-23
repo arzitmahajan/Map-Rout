@@ -7,6 +7,147 @@
   pointer-events: none;
 }
 
+body {
+  background: #F4F8FA;
+}
+
+.texto {
+  width: 560px;
+  height: 24px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  color: #1B31A8;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.input-bg {
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #E9EEF2;
+  border-radius: 4px;
+  width: 272px;
+  height: 56px;
+}
+
+.container {
+  height: 500px;
+}
+
+.input-form {
+  width: 40%;
+  height: 100%;
+}
+
+input,
+input:active {
+  border: 0;
+  outline: none;
+}
+
+.map {
+  /* background-color: aquamarine; */
+  width: 60%;
+  height: 100%;
+}
+
+.head {
+  width: 50%;
+  height: 77.5px;
+}
+
+.result {
+  width: 100%;
+  background: #FFFFFF;
+}
+
+.res {
+  width: 100%;
+}
+
+.liner {
+  height: 90%;
+  height: 77.5px;
+  background: #F4F8FA;
+  text-align: center;
+}
+
+.distDeco {
+  width: 246px;
+  height: 24px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #1E2A32;
+}
+
+.dist {
+  width: 152px;
+  height: 38px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 120%;
+  text-align: right;
+  color: #0079FF;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.cal-button {
+  background-color: #1B31A8;
+  color: white;
+  border-radius: 32px;
+  border: 0;
+  width: 141px;
+  height: 62px;
+}
+.current,.currimg{
+  width: 20px;
+  border:0;
+  outline: none;
+  background-color: #F4F8FA;
+  margin-bottom: 3px;
+}
+.cal-button:hover {
+  background-color: #2946ec;
+}
+.clr-button{
+  background-color:#C9605B;
+  color: white;
+  border-radius: 32px;
+  border: 0;
+  width: 141px;
+  height: 62px;
+}
+.clr-button:hover{
+  background-color:#ca2525;
+}
+.cal-button:hover {
+  background-color: #2946ec;
+}
+.holder {
+  width: 24px;
+  height: 27px;
+  margin-top: 15px;
+}
+
+.label {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  width: 47%;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -32,6 +173,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

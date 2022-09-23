@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Map-Rout/static/css/main.0a24d062.css",
+    "main.js": "/Map-Rout/static/js/main.df1ab809.js",
+    "static/js/787.3872ccbc.chunk.js": "/Map-Rout/static/js/787.3872ccbc.chunk.js",
+    "index.html": "/Map-Rout/index.html",
+    "main.0a24d062.css.map": "/Map-Rout/static/css/main.0a24d062.css.map",
+    "main.df1ab809.js.map": "/Map-Rout/static/js/main.df1ab809.js.map",
+    "787.3872ccbc.chunk.js.map": "/Map-Rout/static/js/787.3872ccbc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a24d062.css",
+    "static/js/main.df1ab809.js"
+  ]
+}

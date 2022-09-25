@@ -1,17 +1,21 @@
 import { DirectionsRenderer, GoogleMap, MarkerF } from '@react-google-maps/api';
 import React from 'react';
-import './Map.css';
 
 const Map = (props) => {
     function recentering(e){
         props.setRecenter(e);
       }
+      const mapContainerStyle = {
+            width: "560px",
+            height: "511px",
+            margin:"0px 104px 120px 130px",
+    };
     return (
             <GoogleMap
                 zoom={10}
                 center={props.center}
                 mapContainerClassName="map-container"
-                mapContainerStyle={{width:"42%"}}
+                mapContainerStyle={mapContainerStyle}
                 onLoad={recentering}
             >
                 {props.response&&<DirectionsRenderer directions={props.response}/>}

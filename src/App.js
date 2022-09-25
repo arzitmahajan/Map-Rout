@@ -3,9 +3,10 @@ import Navbar from './Components/Navbar';
 import Map from './Components/Map';
 import logo from './Assets/logo.png';
 import mark from './Assets/placeholder.png';
+import cross from './Assets/cross.png';
 import currentIcon from './Assets/recentre.png';
-import React, {useState, useRef, useEffect } from 'react';
-import { useJsApiLoader, Autocomplete} from "@react-google-maps/api";
+import React, { useState, useRef, useEffect } from 'react';
+import { useJsApiLoader, Autocomplete } from "@react-google-maps/api";
 
 function App() {
   const [map, setmap] = useState(/** @type google.maps.Map */(null));
@@ -14,7 +15,7 @@ function App() {
   const [duration, setDuration] = useState('');
   const [originInput, setOriginInput] = useState(false)
   const [destinationInput, setDestinationInput] = useState(false)
-  const [centerGiven, setcenterGiven] = useState({  lng: '',lat: '' })
+  const [centerGiven, setcenterGiven] = useState({ lng: '', lat: '' })
 
   const originRef = useRef();
   const destinationRef = useRef();
@@ -23,39 +24,39 @@ function App() {
 
   //Load API key and libraries
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey:process.env.REACT_APP_NEXT_API_KEY,
+    googleMapsApiKey: process.env.REACT_APP_NEXT_API_KEY,
     libraries: ['places'],
   });
   //fetch current coordinates of user and if access is handling it 
   useEffect(() => {
     const getCoordinates = (position) => {
-      setcenterGiven({lng: position.coords.longitude, lat: position.coords.latitude });
+      setcenterGiven({ lng: position.coords.longitude, lat: position.coords.latitude });
     }
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getCoordinates,showError);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(getCoordinates, showError);
+    }
+    else {
+      alert("Geolocation is not supported by this browser");
+    }
+    function showError(error) {
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          alert("User denied the request for Geolocation.");
+          break;
+        case error.POSITION_UNAVAILABLE:
+          alert("Location information is unavailable.");
+          break;
+        case error.TIMEOUT:
+          alert("The request to get user location timed out.");
+          break;
+        case error.UNKNOWN_ERROR:
+          alert("An unknown error occurred.");
+          break;
+        default:
+          break;
       }
-      else {
-        alert("Geolocation is not supported by this browser");
-      }
-      function showError(error) {
-        switch(error.code) {
-          case error.PERMISSION_DENIED:
-            alert("User denied the request for Geolocation.");
-            break;
-          case error.POSITION_UNAVAILABLE:
-            alert("Location information is unavailable.");
-            break;
-          case error.TIMEOUT:
-            alert("The request to get user location timed out.");
-            break;
-          case error.UNKNOWN_ERROR:
-            alert("An unknown error occurred.");
-            break;
-          default:
-            break;
-        }
-      }
-    
+    }
+
   }, []);
 
 
@@ -82,7 +83,7 @@ function App() {
 
   //calculate route distance and duration
   const clearRoute = () => {
-    
+
     setDistance('');
     setDuration('');
     originRef.current.value = "";
@@ -95,45 +96,43 @@ function App() {
   function recenter(e) {
     setmap(e);
   }
-  
+
   if (!isLoaded) return <div>Loading...</div>
   return (
     <>
       <Navbar logo={logo} />
-      <center><p className='texto my-3'>Let's calculate <strong>distance</strong> from Google maps</p></center>
-      <div className='container d-flex justify-content-between my-5'>
+      <center><p className='texto'>Let's calculate <strong>distance</strong> from Google maps</p></center>
+      <div className='main d-flex'>
         <div className='input-form'>
-          <div className="mb-3">
+          <div>
             <label htmlFor="origin" className='label'><span className='label'>Origin</span></label>
-            <button className='current' onClick={()=>map.panTo(centerGiven)}><img className='currimg' src={currentIcon} alt="not found"/></button>
+            <input type="image" className='current' src={currentIcon} onClick={() => map.panTo(centerGiven)}/>
+            <input type="image" className="current mx-4"  src={cross} onClick={clearRoute}/>
             <div className="input-bg col-sm-5 d-flex">
-              <img className='holder mx-3' src={mark} alt="not found" />
+              <img className='holder' src={mark} alt="not found" />
               <Autocomplete>
-                <input type="text" className="origin my-3 mx-2" ref={originRef} />
+                <input type="text" className="origin" ref={originRef} />
               </Autocomplete>
             </div>
           </div>
-          <div className="mb-3 d-flex align-items-end flex-column">
-            <button type="button" className="mt-auto p-2 cal-button" onClick={calculateDistance}>Calculate</button>
+          <div>
+            <button type="button" className="cal-button" onClick={calculateDistance}>Calculate</button>
           </div>
-          <div className="mb-3">
+          <div className="mo">
             <label htmlFor="destination"><span className='label'>Destination</span></label>
             <div className="input-bg col-sm-5 d-flex">
-              <img className='holder mx-3' src={mark} alt="not found" />
+              <img className='holder' src={mark} alt="not found" />
               <Autocomplete>
-                <input type="text" className="destination my-3 mx-2" ref={destinationRef} />
+                <input type="text" className="origin" ref={destinationRef} />
               </Autocomplete>
             </div>
           </div>
-          <div className="mb-3 d-flex align-items-end flex-column">
-              <button type="button" className="mt-auto p-2 my-4 clr-button" onClick={clearRoute}>Clear</button>
+          <div className="res-section">
+            <div className='result d-flex'>
+              <div className='head'><span className='distDeco'>Distance</span></div>
+              <div className='tail'><span className='dist'>{distance}</span></div>
             </div>
-          <div className='res'>
-            <div className='result row rounded'>
-              <div className='head col-2  justify-content-center  d-flex align-items-center'><span className='distDeco'>Distance</span></div>
-              <div className='head col-2  justify-content-center  d-flex align-items-center'><span className='dist'>{distance}</span></div>
-            </div>
-            <div className='liner my-5'>
+            <div className='liner'>
               {originInput && <span className='duration'><p>The distance between <strong>{originInput}</strong> and <strong>{destinationInput}</strong> is <strong>{distance}</strong>and estimated time is <strong>{duration}</strong></p></span>}
             </div>
           </div>

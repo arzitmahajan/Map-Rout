@@ -1,25 +1,33 @@
 .App {
   text-align: center;
 }
-body{
+
+body {
   overflow-x: hidden;
   background: #F4F8FA;
 
 }
+.main{
+  margin-left: 156px;
+  left: 156px;
 
+}
 .texto {
-  width: 100%;
+  width: 560px;
   height: 24px;
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 120%;
+  text-align: center;
   color: #1B31A8;
   flex: none;
   order: 0;
   align-self: stretch;
   flex-grow: 0;
+  margin-top: 33px;
+  margin-bottom: 33px;
 }
 
 .input-bg {
@@ -31,14 +39,9 @@ body{
   width: 272px;
   height: 56px;
 }
-
-.container {
-  height: 500px;
-}
-
 .input-form {
-  width: 40%;
   height: 100%;
+  margin-top: 31px;
 }
 
 input,
@@ -54,37 +57,24 @@ input:active {
 }
 
 .head {
-  width: 50%;
-  height: 77.5px;
-}
-
-.result {
-  width: 100%;
-  background: #FFFFFF;
-}
-
-.res {
-  width: 100%;
-}
-
-.liner {
-  height: 90%;
-  height: 77.5px;
-  background: #F4F8FA;
-  text-align: center;
-}
-
-.distDeco {
   width: 246px;
-  height: 24px;
+  height: 75px;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
   color: #1E2A32;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin-left: 26px;  
 }
 
-.dist {
+.tail {
   width: 152px;
   height: 38px;
   font-family: 'Inter', sans-serif;
@@ -97,6 +87,29 @@ input:active {
   flex: none;
   order: 0;
   flex-grow: 0;
+  margin-top: 23px;
+  margin-right: 25px;
+  margin-left: 41px;
+}
+
+.res-section {
+  margin-top: 49px;
+  height: 155px;
+  width: 489.9999694824219px;
+  border-radius: 8px;
+}
+
+.liner {
+  background: #F4F8FA;
+  text-align: center;
+  height: 80px;
+  width: 490px;
+  padding-left: 27px;
+  padding-right: 37px;
+  padding-top: 33px;
+  padding-bottom: 33px;
+  border-radius: 0px 0px 5px 5px;
+  border:1px  solid #E9EEF2;
 }
 
 .cal-button {
@@ -106,85 +119,155 @@ input:active {
   border: 0;
   width: 141px;
   height: 62px;
+  position: absolute;
+  left: 505px;
 }
-.current,.currimg{
+
+.current{
   width: 20px;
-  border:0;
+  border: 0;
   outline: none;
-  background-color: #F4F8FA;
   margin-bottom: 3px;
+  position: relative;
+  left: 65px;
 }
 .cal-button:hover {
   background-color: #2946ec;
 }
-.clr-button{
-  background-color:#C9605B;
+
+.clr-button {
+  background-color: #C9605B;
   color: white;
   border-radius: 32px;
   border: 0;
   width: 141px;
   height: 62px;
+  position: absolute;
+  left: 505px;
 }
-.clr-button:hover{
-  background-color:#ca2525;
+
+.clr-button:hover {
+  background-color: #ca2525;
 }
+
 .cal-button:hover {
   background-color: #2946ec;
 }
+
 .holder {
   width: 24px;
   height: 27px;
-  margin-top: 15px;
+  margin-top: 14px;
+  margin-left: 12px;
+  margin-bottom: 15px;
 }
 
 .label {
-  font-family: 'Work Sans';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  width: 47%;
+  width: 143px;
+  height: 25px;
+  line-height: 150%;
+}
+
+.mo {
+  margin-top: 49px;
+}
+
+.origin {
+  width: 225px;
+  height: 29px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+  color: #4D6475;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin-left: 8px;
+  margin-top: 14px;
+  margin-bottom: 13px;
+}
+
+.duration {
+  width: 426px;
+  height: 14px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+  color: #1E2A32;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.result{
+  background-color: #FFFFFF;
+  border-radius: 5px 5px 0px 0px;
+  border:1px  solid #E9EEF2;
 }
 @media screen and (max-width: 500px) {
-  .input-bg{
+  .input-bg {
     width: 250px;
   }
-  input{
+
+  input {
     width: 150px;
   }
-  .current{
+
+  .current {
     position: relative;
-    left:135px;
+    left: 135px;
   }
-  .res{
-    margin-left: 15px;
+
+  .res {
+    width: 490px;
+    height: 155px;
+    border-radius: 8px;
   }
+
   .dist {
     width: 80px;
     height: 19px;
     font-size: 22px;
   }
-  
+
 }
+
 @media screen and (min-width: 340px)and (max-width: 480px) {
-  .cal-button,.clr-button{
+
+  .cal-button,
+  .clr-button {
     width: 101px;
     height: 52px;
   }
-  .input-bg{
+
+  .input-bg {
     width: 150px;
   }
-  input{
+
+  input {
     width: 80px;
   }
-  .current{
+
+  .current {
     position: relative;
-    left:55px;
+    left: 55px;
   }
-  .result{  
-    display: block;
+
+  .result {
+    background-color: #FFFFFF;
   }
-  .head{
+
+  .head {
     margin-left: 25%;
   }
-  
+
 }
